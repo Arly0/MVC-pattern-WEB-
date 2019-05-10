@@ -201,7 +201,7 @@ function checkBtn(k) {
 <script src="src/js/wow.js"></script>
 <script>new WOW().init();</script>
 <script src="src/js/initMap.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSgK4DoVtEqshdj0kPfdWvDFmqk2Epyvs&callback=initMap" type="text/javascript">
+<script src="https://maps.googleapis.com/maps/api/js?key=%key%&callback=initMap" type="text/javascript">
 </script>
 </body>
 </html>
