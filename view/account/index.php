@@ -1,4 +1,7 @@
 <?php
+session_start();
+//unset($_COOKIE["kfsk_cookie"]);
+//setcookie("kfsk_cookie", '', time() - 3600, '/');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +42,7 @@ require_once(ROOT . '/view/header.php');
         width: 100%;
         height: 300px;
         background-color: #000;
-        background-image: url("src/img/gall_5.jpg");
+        background-image: url("avatars/<?=$accountInfo['imgURL']?>");
         background-size: auto 100%;
         background-position: center left 60%;
     }

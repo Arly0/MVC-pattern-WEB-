@@ -1,7 +1,12 @@
 <?php
-include_once (ROOT . '/db.php');
-// тут хуйня какая-то
-$db = db::getConnect();
+// test delete cookie
+
+
+
+// проблема: второй раз конектитсься невозможно к ПДО. Но переменную БД он потерял. Варианты: создать новое подключение mysqli. глубже разобраться как подключится 2 раз, либо хз
+include_once (ROOT . '/serverSide/DBconnection.php');
+//$db = db::getConnect(); // нужно подумать как и где передать / словить параметры pdo / с вьюхи подключаюсь к бд. я долбаеб
+include_once (ROOT . '/serverSide/lib.php');
 function findcookie($db)
 {
     $id = false;
@@ -10,10 +15,10 @@ function findcookie($db)
     if(!$id){
         $id = $_SESSION['id'];
     }
-    echo $id;
     // check on cookie login account
     if ($id) {
-//        $db = db::getConnect();
+        // $db = db::getConnect();
+
         $nick = showNick($id, $db)
         // find element in html and enter code
 
@@ -24,7 +29,7 @@ function findcookie($db)
                 $('.account').append(
                     "<a style=\"margin-top: 40%; color: #fff\" href=\"http://localhost/sindo_kab/account/<?=$id?>\">\n" +
                     "                        <i style=\"\" class=\"fas fa-user-ninja fa-2x\"></i>\n" +
-                    "                            <?= $nick ?>\n" +
+                    "                            <?= $nick['nickname'] ?>\n" +
                     "                        </a>"
                 )
             });
@@ -48,7 +53,7 @@ function findcookie($db)
 ?>
 
 <?php
-findcookie($db);
+findcookie($connection);
 ?>
 
 <!--ОБЯЗАТЕЛЬНО В ПРОД ПЕРЕНЕСТИ СТИЛИ-->

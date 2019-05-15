@@ -7,7 +7,7 @@ class db
     {
         // takes parametrs for connect to db
         $params = include_once ('config/db_params.php');
-
+//        print_r ($params);
         // pdo connection to DB
         $db = new PDO("mysql:host={$params['host']};dbname={$params['dbname']}", $params['user'], $params['pass']);
 

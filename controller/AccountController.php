@@ -9,7 +9,12 @@ class AccountController
         // общий вид
         $accountInfo = array();
         $accountInfo = Account::getAccount($id);
-//        print_r($accountInfo);
+//      print_r($accountInfo);
+//        $cookie = $_COOKIE["kfsk_cookie"];
+        // добавить сессию
+
+//        $nick = Account::getNickName($id);
+//        echo $nick;
         require_once(ROOT . '/view/account/index.php');
 
 

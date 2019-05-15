@@ -1,5 +1,5 @@
 <?php
-include_once("setCookieIP.php");
+include_once("../lib.php");
 include_once("setPhone.php");
 include_once("../return/home.php");
 include_once("../return/main.php");

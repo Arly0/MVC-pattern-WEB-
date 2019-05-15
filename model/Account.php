@@ -16,7 +16,8 @@ class Account
         $query = $db->query("SELECT * FROM `signin` WHERE `id` = $id");
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $accountInfo = $query->fetch();
-
+        if($accountInfo['imgURL'] == '')
+            $accountInfo['imgURL'] = 'avatar-default.png';
         //struct info
 //        $i = 0;
 //        while($row = $query->fetch()){
@@ -30,4 +31,14 @@ class Account
         return $accountInfo;
         }
     }
+
+//    public static function getNickName($id){
+//        $db = db::getConnect();
+//
+//        $query = $db->query("SELECT `nickname` FROM `signin` WHERE `id` = $id");
+//        $row = $query->fetch(PDO::FETCH_ASSOC);
+//        $nick = $row['nickname'];
+//
+//        return $nick;
+//    }
 }

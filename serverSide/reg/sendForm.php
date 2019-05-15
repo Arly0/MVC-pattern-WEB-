@@ -34,6 +34,7 @@ if(findMail($mail, $db)){
 // кешируем пароль
 $pass = hidePass($pass);
 
+if($file['error'] != 4) {
 // проверяем файл, что эток артинка
 if(secureAvatar($file))
 {}
@@ -42,10 +43,12 @@ else{
     exit();
 }
 
-$fileName = loadAvatar($file);
-if(!$fileName){
-    echo "Файл не был установлен по тех.причинам. Попробуйте позже.";
-    exit();
+
+    $fileName = loadAvatar($file);
+    if (!$fileName) {
+        echo "Файл не был установлен по тех.причинам. Попробуйте позже.";
+        exit();
+    }
 }
 
 // перед этим необходимо закешировать пароли, создать имя картинки, сохранить ее.
@@ -63,48 +66,6 @@ else{
 $pass = hidePass($pass);
 
 
-function secureAvatar($avatar)
-{
-        $name = $avatar["name"];
-        $type = $avatar["type"];
-        $size = $avatar["size"];
-        $blacklist = array(".php3",".php",".phtml",".php4");
 
-        // проверяем формат файла на совпадение с черным списком
-        foreach ($blacklist as $item){
-            if(preg_match("/$item\$/i", $name))
-                return false;
-        }
-
-        // проверка на тип
-        if(($type != "image/gif") && ($type != "image/png") && ($type != "image/jpg") && ($type != "image/jpeg"))
-            return false;
-
-        // проверка на размер
-        if($size > 2 * 1024 * 1024)
-            return false;
-
-        return true;
-}
-
-
-function loadAvatar($avatar){
-        $type = $avatar["type"];
-        $uploadDir = "../../avatars/";
-
-        // получаем расширение
-        $name = md5(microtime()) . "." . substr($type, strlen("image/"));
-
-        $uploadFile = $uploadDir . $name;
-
-        // перемещаем файл в папку корня
-        if(move_uploaded_file($avatar["tmp_name"], $uploadFile)){
-//                setAvatar($id, $name); // нужна ли функция занесения? я занесу вместе с инсертом все
-            return $name;
-        }
-        else{
-            return false;
-        }
-}
 
 ?>

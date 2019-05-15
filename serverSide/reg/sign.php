@@ -36,13 +36,19 @@ else{
 // нужно получить id пользователя
     $id = takeID($mail, $db);
 
-
 if(isset($remember)){
     // тут создаются куки файлы
         $name = "kfsk_cookie";
         $timer = time() + 3600;
     // create cookie
-        setcookie($name, $id, $timer);
+
+        try{
+            setcookie($name, $id, $timer, '/');
+        }
+        catch (Exception $e){
+            print_r('error: ' . $e);
+            exit();
+        }
 }
 else{
     // тут сессия
@@ -50,9 +56,8 @@ else{
         $_SESSION['id'] = $id;
 }
 //echo $_SERVER['DOCUMENT_ROOT'];
+//exit();
 //  в проекте заменить localhost на $_SERVER['DOCUMENT_ROOT'];
 header("Location:http://localhost/sindo_kab/account/" . $id);
-
-
 
 ?>
