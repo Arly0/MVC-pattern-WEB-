@@ -23,6 +23,13 @@ class Route
     public function run()
     {
         $uri = $this->getURI(); // берет ЮРЛ
+//        echo $uri;
+        // в продакшене тут будет пусто
+        if($uri == 'sindo_kab'){
+            include_once "indexMain.php";
+            exit();
+        }
+        // тут проверка на пустой урл и подключение мэйн файла
 
 
         // поиск ЮРЛ в роутах
@@ -48,6 +55,7 @@ class Route
                 // проверка корректности всех имен
 //                echo ($contollerName . 'name of controller');
 //                echo ("<br>" . $actionName . 'name of action');
+//                exit();
 
 //                echo ("<br>");
 //                echo "<pre>";

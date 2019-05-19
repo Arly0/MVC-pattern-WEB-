@@ -16,6 +16,7 @@ class Account
         $query = $db->query("SELECT * FROM `signin` WHERE `id` = $id");
         $query->setFetchMode(PDO::FETCH_ASSOC);
         $accountInfo = $query->fetch();
+        // добавление стандартной аватарки, если не была установлена кастомная
         if($accountInfo['imgURL'] == '')
             $accountInfo['imgURL'] = 'avatar-default.png';
         //struct info

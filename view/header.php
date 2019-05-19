@@ -113,8 +113,7 @@ findcookie($connection);
                 <h2 class="modal__title">
                     Вход в систему
                 </h2>
-<form method="post" action="serverSide/reg/sign.php">
-    <div class="form">
+            <form method="post" class="form" action="serverSide/reg/sign.php">
                 <input type="text" required name="login" placeholder="Введите ваш логин" class="modal__login">
                 <input type="password" required name="password" placeholder="Введите ваш пароль"  class="modal__password">
 
@@ -123,14 +122,18 @@ findcookie($connection);
                     <p class="modal__remember-text">Запомнить меня</p>
                     <input type="checkbox" name="remember"  class="modal__remember">
                 </div>
-        <input type="submit" class="modal__sbm" name="sbm">
+                <input type="submit" class="modal__sbm" name="sbm">
 <!--text-->
-<!--                <div class="d-flex">-->
-<!--                    <p class="modal__remember-text">Забыли пароль?</p>-->
-<!--                    <input type="password" name="forgot" class="modal__forgot">-->
-<!--                </div>-->
+            </form>
+                <form action="serverSide/mail/passForget.php" method="post" class="form">
+                    <div class="d-flex">
+                        <a href="#" class="modal__remember-text">Забыли пароль?</a>
+                        <input type="text" name="forgot" class="modal__forgot">
+                        <button type="submit" class="modal__forgor-btn" name="forgot-btn">Забыл все таки :с</button>
+                    </div>
+                </form>
     </div>
-</form>
+<!--</form>-->
             </div>
         </div>
 

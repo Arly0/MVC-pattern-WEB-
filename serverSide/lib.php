@@ -146,4 +146,41 @@
 
         return $ip;
     }
+
+        // генерация нового пароля
+    function generatePass(){
+        $chars="qazxswedcvfrtgbnhyujmkiolp1234567890QAZXSWEDCVFRTGBNHYUJMKIOLP";
+
+        $max = 12;
+        $min = 6;
+
+        $size = strlen($chars) - 1;
+
+        $pass = null;
+        $passLen = rand($min, $max);
+
+        while ($passLen--){
+            $pass .= $chars[rand(0, $size)];
+        }
+
+        return $pass;
+    }
+
+
+        // внесение нового пароля в бд
+    function setPass($pass, $mail, $db){
+        $query = "UPDATE `signin` SET 'password' = :pass WHERE `email` = :mail";
+
+        $stmt = $db->prepare($query);
+        $stmt->bindValue(':pass', $pass, PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+        if($stmt->execute()){
+//            echo "Изменение пароля прошло успешно ... ссылочка";
+            return true;
+        }
+        else{
+//            echo "Сбой при смене пароля";
+            return false;
+        }
+    }
 ?>

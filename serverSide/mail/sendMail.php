@@ -62,7 +62,7 @@ function sendMail() {
 
     // create message
     $message = "
-    Оффер с сайта sindo.ru.\r\n
+    Оффер с сайта KFSK.com.ua.\r\n
     Информация о контактном лице:\r\n
     ФИО: " . $name . ".\r\n
     Контактный телефон: " . $phone . ".\r\n
