@@ -10,7 +10,6 @@ class Route
         $routesPath = ROOT.'/config/routes.php';
         $this->routes = include_once($routesPath);
     }
-
     //получает ЮРЛ страницы
     private function getURI()
     {
@@ -23,7 +22,7 @@ class Route
     public function run()
     {
         $uri = $this->getURI(); // берет ЮРЛ
-//        echo $uri;
+
         // в продакшене тут будет пусто
         if($uri == 'sindo_kab'){
             include_once "indexMain.php";
@@ -37,11 +36,8 @@ class Route
         {
             if(preg_match("~$uriPattern~", "$uri"))
             {
-
                 // находит полный путь(юрл)
                 $fullRoute = preg_replace("~$uriPattern~", $path, $uri);
-
-//                echo ($fullRoute); // проверка
 
                 // path is news/index2. this cline give only news
                 // разделяет адрес на несколько частей. для контроллера, акшиона и параметров
@@ -71,7 +67,17 @@ class Route
                 {
                     include_once($controllerpath);
                 }
+                else{
+                    header("Location:http://localhost/sindo_kab/");
+                    exit();
+                }
+                if(method_exists($contollerName, $actionName)) {
 
+                }
+                else{
+                    header("Location:http://localhost/sindo_kab/");
+                    exit();
+                }
 
                 // создает экзмепляр метода в нужном контроллере
                 $controllerMethod = new $contollerName;
@@ -83,6 +89,9 @@ class Route
                     break;
                 }
             }
+//            else{
+//                echo 'wtf';
+//            }
         }
     }
 }

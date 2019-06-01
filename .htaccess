@@ -1,0 +1,14 @@
+AddDefaultCharset utf-8
+
+RewriteEngine On
+# корневая папка сайта
+RewriteBase /sindo_kab/
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_URI} !^/account/
+RewriteCond %{REQUEST_URI} !^/src/
+
+
+# регул. выражение означает адрес и после него выполняется его индекс
+RewriteRule ^(.*)$ index.php

@@ -13,51 +13,15 @@
     <link rel="stylesheet" href="src/css/animate.min.css">
     <link rel="stylesheet" href="src/css/bootstrap.min.css">
     <link rel="stylesheet" href="src/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 
 
 <section id="underheader" class="underheader karate-kick-img">
-    <header id ="header" class="header">
-        <div class="container">
-            <div class="row animated fadeInDownBig">
-                <div class="col-lg-2">
-                    <a href="index.html"><img class="img-logo" src="src/img/logo_karate_1.png" alt="Логотип Криворожской Федерации Спортивного Каратэ."></a>
-                    <input type="checkbox" id="toggle" class="toggle">
-                    <label class="label" for="toggle"><i class="fa fa-bars"></i></label>
-                </div>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-5 animated fadeInDownBig menu-hide">
-                    <nav>
-                        <hr class="hr-hide">
-                        <ul class="menu d-flex">
-                            <li class="menu__item">
-                                <a class="menu__new" href="#info-about-us">
-                                    Новичкам
-                                </a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="#sensei">
-                                    Тренера
-                                </a>
-                            </li>
-                            <li class="menu__item">
-                                <a href="#map">
-                                    Контакты
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!--<div class="col-lg-1"></div>-->
-                <!--<div class="col-lg-2">-->
-                <!--<button class="btn">-->
-                <!--Войти-->
-                <!--</button>-->
-                <!--</div>-->
-            </div>
-        </div>
-    </header>
+    <?php
+    include_once ROOT . "/view/header.php";
+    ?>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -197,23 +161,23 @@
                     <h3 class="about-sensei__name">
                         Сергей Карасев
                     </h3>
-                    <ul class="icnos d-flex">
-                        <li class="icons__social">
-                            <a class="twitter" href="https://twitter.com/Arly010">
-                                <i class="fa fa-twitter fa-2x"></i>
-                            </a>
-                        </li>
-                        <li class="icons__social">
-                            <a class="facebook" href="https://soundcloud.com/arly0">
-                                <i class="fa fa-facebook-f fa-2x"></i>
-                            </a>
-                        </li>
-                        <li class="icons__social">
-                            <a class="instagarm" href="https://www.instagram.com/arly0_/?hl=en">
-                                <i class="fa fa-instagram fa-2x"></i>
-                            </a>
-                        </li>
-                    </ul>
+<!--                    <ul class="icnos d-flex">-->
+<!--                        <li class="icons__social">-->
+<!--                            <a class="twitter" href="https://twitter.com/Arly010">-->
+<!--                                <i class="fa fa-twitter fa-2x"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="icons__social">-->
+<!--                            <a class="facebook" href="https://soundcloud.com/arly0">-->
+<!--                                <i class="fa fa-facebook-f fa-2x"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li class="icons__social">-->
+<!--                            <a class="instagarm" href="https://www.instagram.com/arly0_/?hl=en">-->
+<!--                                <i class="fa fa-instagram fa-2x"></i>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                 </div>
             </div>
             <div class="col-lg-4">
@@ -319,7 +283,7 @@
     </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
@@ -342,7 +306,7 @@
 <script src="src/js/menuAdaptive.js"></script>
 <script src="src/js/senseiSwap.js"></script>
 <script src="src/js/slowjakor.js"></script>
-<script src="src/js/wow.js"></script>
+<script src="src/js/wow.min.js"></script>
 <script>new WOW().init();</script>
 <script src="src/js/initMap.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSgK4DoVtEqshdj0kPfdWvDFmqk2Epyvs&callback=initMap" type="text/javascript">
